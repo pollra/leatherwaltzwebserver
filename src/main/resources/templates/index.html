@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leather Waltz</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/leatherWaltz.css">
+    <link rel="stylesheet" type="text/css" href="/css/loginForm.css">
+    <link rel="stylesheet" type="text/css" href="/css/snackbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/myStatus.css">
+    <script type="text/javascript" src="/js/leather.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+<nav>
+    <a id="navBarLogo" class="kaushan">Leather Waltz<i id="navBarLogoRightIcon" class="chevron down icon"></i></a>
+    <div id="loginStatus" onclick="loginModalOpenAndClose('block')"><i class="user circle icon"></i><p id="loginStatusId"></p></div>
+</nav>
+<!--내 정보 창-->
+<div id="myStatus">
+    <!-- 간략한 회원 정보 -->
+    <div id="myStatusInfo">
+        <i class="user circle icon"></i>
+        <label></label>
+    </div>
+
+    <!-- 최근 작성한 글 -->
+    <div id="myPost"></div>
+
+    <!-- 로그아웃 -->
+    <div id="logoutBtn">
+        <button type="button" onclick="logoutAction()">로그아웃</button>
+    </div>
+</div>
+<!-- 로그인 창 -->
+<div id="loginContainer" class="loginContainerModal">
+
+    <form class="modal-content animate" id="shakeTarget">
+        <div class="imgcontainer">
+            <span onclick="loginModalOpenAndClose('none')" class="close colorSet" title="Close Modal">&times;</span>
+            <h1 class="kaushan bigLogo">Leather Waltz</h1>
+        </div>
+
+        <div class="container">
+            <label for="id" class="colorSet"><b>Username</b></label>
+            <input type="text" class="loginId" placeholder="아이디를 입력해주세요" name="id" required>
+
+            <label for="pw" class="colorSet"><b>Password</b></label>
+            <input type="password" class="loginPw" placeholder="비밀번호를 입력해주세요" name="pw" required>
+            <span class="psw"><a href="#">비밀번호 찾기</a></span>
+
+            <button type="button" class="loginBtn" onclick="loginAction()">로그인</button>
+            <!--<label class="colorSet">-->
+                <!--<input type="checkbox" checked="checked" name="remember">저장하기-->
+            <!--</label>-->
+        </div>
+        <!--알림 창-->
+        <div id="DoesNotMatch"></div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="loginModalOpenAndClose('none')" class="cancelbtn">취소</button>
+            <span class="psw"><a href="#">회원가입</a></span>
+        </div>
+    </form>
+</div>
+
+<!-- 상단 메인 이미지 -->
+<div style="margin-bottom:-5px;">
+    <img src="/img/mainImage/01.png" style="width: 100%">
+</div>
+
+
+<!-- 중앙 Commisstiond production -->
+<div class="commissioned">
+    <div class="commissionedLogo"><h1 class="gemunu">Commissioned production</h1></div>
+    <div class="commissionListOut">
+        <ul class="commissionOutList">
+            <!-- 중앙 큰 버튼 01 -->
+            <li class="commissionList">
+                <!-- 이미지 -->
+                <div><img src="/img/commission/order.png"/></div>
+                <!-- 아이콘 & 글자 -->
+                <div><h4 class="gemunu">CUSTOM ORDER</h4></div>
+            </li>
+            <!-- 중앙 큰 버튼 02 -->
+            <li class="commissionList">
+                <!-- 이미지 -->
+                <div><img src="/img/commission/question.png"/></div>
+                <!-- 아이콘 & 글자 -->
+                <div><h4 class="gemunu">ORDER QUESTION</h4></div>
+            </li>
+            <!-- 중앙 큰 버튼 03 -->
+            <li class="commissionList">
+                <!-- 이미지 -->
+                <div><img src="/img/commission/completed.png"/></div>
+                <!-- 아이콘 & 글자 -->
+                <div><h4 class="gemunu">ORDER LIST</h4></div>
+            </li>
+            <!-- 간단 게시판 보기 -->
+            <li class="commissionList">
+                <!-- 이미지 -->
+                <div><img src="/img/commission/selection.png"/></div>
+                <!-- 아이콘 & 글자 -->
+                <div><h4 class="gemunu">LEATHER SELECTION</h4></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 하단 Gallery-->
+<div style="background-color: #1e1e1c;width: 100%; text-align: center">
+    <!-- 백그라운드 컬러 설정해야함 -->
+    <!-- 갤러리 글자 -->
+    <div class="galleryTitle">
+        <div>
+            <h1 class="kaushan galleryTitleFont">Gallery</h1>
+        </div>
+    </div>
+    <div class="galleryOut">
+        <ul class="gallery">
+            <!-- 이미지 -->
+            <li class="galleryImage">
+                <img src="/img/galleryImage/01.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/02.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/03.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/04.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/05.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/06.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/07.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/08.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/09.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/10.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/11.png"/>
+            </li>
+            <li class="galleryImage">
+                <img src="/img/galleryImage/12.png"/>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 최하단 페이지 정보 -->
+<div class="footer">
+    <div class="footerinner" style="background-color: #1e1e1c">
+        <div class="otherConfig">
+            <h2 class="kaushan footerLW">Leather Waltz</h2>
+            <ul>
+                <li><p>레더 왈츠 대표: 하리보 소재지: 서울특별시 나방구 혹시너동 18호</p></li>
+                <li><p>문의: 010-1234-5678 전자우편: lmj@naver.com</p></li>
+                <li><p>사업자등록번호: 123-45-67890</p></li>
+                <li><p>본 사이트는 포트폴리오 목적으로 제작되었습니다.</p></li>
+            </ul>
+        </div>
+        <div class="config">
+            <h3>고객 메뉴</h3>
+            <ul>
+                <li><a>내 정보</a></li>
+                <li><a>내 요청사항</a></li>
+                <li><a>주문 목록</a></li>
+                <li><a>장바구니</a></li>
+                <li><a>강의 진행도</a></li>
+            </ul>
+        </div>
+        <div class="config">
+            <h3>서비스</h3>
+            <ul>
+                <li><a>주문제작 문의</a></li>
+                <li><a>주문제작 요청</a></li>
+                <li><a>주문수정 요청</a></li>
+                <li><a>가죽 원단 종류</a></li>
+                <li><a>강의 보기</a></li>
+            </ul>
+        </div>
+        <div class="config">
+            <h3 class="kaushan">ⓒ2019 Leather Waltz</h3>
+            <ul>
+                <li><a>개인정보 보호정책</a></li>
+                <li><a>라이센스 허용범위</a></li>
+                <li><a>고객센터</a></li>
+                <li><a>사업장 소개</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

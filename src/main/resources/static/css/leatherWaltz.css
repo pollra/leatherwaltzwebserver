@@ -1,0 +1,189 @@
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #1e1e1c;
+
+    text-align: center;
+    /* 투명도 */
+    opacity: 0.97;
+
+}
+#navBarLogo{
+    color: aliceblue;
+    font-size: 28px;
+    vertical-align: middle;
+    /*텍스트 세로 중앙맞춤*/
+    line-height: 1.7em;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 9%;
+}
+#navBarLogo:hover {
+    color: #ffffff;
+}
+#navBarLogoRightIcon {
+    font-size: 18px;
+}
+.kaushan{
+    font-family: "Kaushan Script";
+    src: url("/static/font/KaushanScript-Regular.otf");
+}
+.footer {
+    background-color: #1e1e1c;
+    color: #b2a183;
+    width: 100%;
+}
+.footer a{
+    color: #b2a183;
+}
+.footer li{
+    list-style: none;
+}
+.footer ul{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+.footer div{
+    float: left;
+}
+.footer h2, h3{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+.config{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 15%;
+}
+.config h3{
+    margin-bottom: 20px;
+}
+.otherConfig{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 50%;
+}
+.otherConfig h2{
+    margin-bottom: 20px;
+}
+.footerinner{
+    width: 100%;
+    padding: 40px 0px 60px 80px;
+}
+.footerLW{  /*footer left logo*/
+    font-size: 32px;
+}
+/* 갤러리 */
+.gallery {
+    display: inline-block;
+    border: 0px;
+    padding: 0px 10% 20px 10%;
+    margin: 0px 0px 0px 0px;
+    list-style: none;
+    width: 90%;
+}
+.galleryImage{
+    display: inline;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+.galleryImage img{
+    display: inline;
+    width: 24%;
+    padding: 1%;
+    position: inherit;
+    cursor: pointer;
+}
+.galleryTitle{
+    /*텍스트 세로 중앙맞춤*/
+    width: 100%;
+    height: 8%;
+    text-align: center;
+}
+.galleryOut {
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+.galleryTitle div{
+    display: inline-block;
+    margin: 3% 0px 3% 0px;
+}
+.galleryTitleFont{
+    font-size: 42px;
+    color: #f3f3f5;
+    cursor: pointer;
+}
+.commissionOutList{
+    list-style: none;
+    display: flex;
+    border: 0px;
+    padding: 0px 10% 20px 10%;
+    margin: 0px 0px 0px 0px;
+}
+.commissionOutList img{
+    display: inline;
+    width: 90%;
+    padding: 1%;
+    position: inherit;
+    cursor: pointer;
+}
+.commissionListOut{
+    text-align: center;
+    height: inherit;
+    display: contents;
+}
+.commissionedLogo{
+    width: 100%;
+    margin: 3%;
+    text-align: center;
+    cursor: default;
+}
+.commissioned{
+    background-color: #f3f3f5;
+    display: initial;
+}
+.commissionList{
+    width: 25%;
+}
+.gemunu{
+    font-family: "GemunuLibre";
+    src: url("/static/font/GemunuLibre-SemiBold.otf");
+}
+#loginStatus{
+    display: inline-flex;
+    float: right;
+    font-size: 32px;
+    margin: 0;
+    color:#f3f3f5;
+    cursor: pointer;
+}
+#loginStatus i{
+    margin: 16px 0 0;
+}
+#loginStatusId{
+    padding: 0 20px;
+}
+/*그라데이션을 위한 css*/
+.effectGra {
+    display: inline-block;
+    position: relative;
+}
+.effectGra:after {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 1%, #1e1e1c 50%);
+}
